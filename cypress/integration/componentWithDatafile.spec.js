@@ -1,12 +1,12 @@
 describe("Rendering with SDK key", () => {
   beforeEach(() => {
-    cy.visit("/sdkKey");
+    cy.visit("/datafile");
   });
 
   it("should have navigated to correct page", () => {
     cy.get("#title").should(($div) => {
       const text = $div.text();
-      expect(text).equal("With SDK Key");
+      expect(text).equal("With Datafile");
     });
   });
 
