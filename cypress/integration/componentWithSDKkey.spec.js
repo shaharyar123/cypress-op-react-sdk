@@ -16,10 +16,4 @@ describe("Rendering with SDK key", () => {
       expect(text).equal("Rendered 1 times");
     });
   });
-  it("should not render 2 time", () => {
-    cy.get("#with-sdk-key-rendered-times").should(($div) => {
-      const text = $div.text();
-      expect(text).not.equal("Rendered 2 times");
-    });
-  });
 });

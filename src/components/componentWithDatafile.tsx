@@ -22,9 +22,11 @@ export const ComponentWithDatafile = () => {
     }
 
     return (
-      <div id="with-sdk-key">
+      <div>
         <div id="title">With Datafile</div>
-        <div id="with-sdk-key-rendered-times">Rendered {++times[id]} times</div>
+        <div id="with-datafile-rendered-times">
+          Rendered {++times[id]} times
+        </div>
         <div>{flagKey}</div>
       </div>
     );

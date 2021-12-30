@@ -11,15 +11,9 @@ describe("Rendering with SDK key", () => {
   });
 
   it("should render 1 times", () => {
-    cy.get("#with-sdk-key-rendered-times").should(($div) => {
+    cy.get("#with-datafile-rendered-times").should(($div) => {
       const text = $div.text();
       expect(text).equal("Rendered 1 times");
-    });
-  });
-  it("should not render 2 time", () => {
-    cy.get("#with-sdk-key-rendered-times").should(($div) => {
-      const text = $div.text();
-      expect(text).not.equal("Rendered 2 times");
     });
   });
 });
