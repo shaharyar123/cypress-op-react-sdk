@@ -22,6 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve-build": "serve -s build",
     "cypress-open": "./node_modules/.bin/cypress open",
     "cypress-local": "concurrently \"npm run start\" \"npm run cypress-open\"",
     "cypress-run": "./node_modules/.bin/cypress run",

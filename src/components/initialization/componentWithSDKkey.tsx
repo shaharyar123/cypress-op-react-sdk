@@ -5,6 +5,7 @@ import {
   enums,
   OptimizelyDecideOption,
 } from "@optimizely/react-sdk";
+import { GenericRenderer } from "../shared/generic-renderer";
 
 setLogLevel(enums.LOG_LEVEL.ERROR);
 
@@ -13,27 +14,9 @@ const instance = createInstance({
   defaultDecideOptions: [OptimizelyDecideOption.INCLUDE_REASONS],
 });
 export const ComponentWithSDKkey = () => {
-  let times: { [key: string]: number } = {};
-
-  function Generic({ id, flagKey }: { id: string; flagKey: string }) {
-    if (times[id] === undefined) {
-      times[id] = 0;
-    }
-
-    return (
-      <div id="with-sdk-key">
-        <div id="title">With SDK Key</div>
-
-        <div id="with-sdk-key-rendered-times">Rendered {++times[id]} times</div>
-        <div>{flagKey}</div>
-      </div>
-    );
-  }
-
   return (
     <OptimizelyProvider
       optimizely={instance}
-      timeout={2000}
       user={{
         id: "zee",
         attributes: {
@@ -41,7 +24,11 @@ export const ComponentWithSDKkey = () => {
         },
       }}
     >
-      <Generic id="flag-one" flagKey="flag-one"></Generic>
+      <GenericRenderer
+        id="flag-one"
+        flagKey="flag-one"
+        title="With SDK Key"
+      ></GenericRenderer>
     </OptimizelyProvider>
   );
 };
