@@ -8,6 +8,7 @@ import { RenderingWithUseDecision } from "./components/useDecision/renderingWith
 import { RenderingWithUserObject } from "./components/provider/renderingWithUserObject";
 import { RenderingWithUserPromise } from "./components/provider/renderingWithUserPromise";
 import { RenderingWhenTimeout } from "./components/provider/renderingWhenTimeout";
+import { RenderingWhenDatafileNeverLoaded } from "./components/provider/renderingWhenDatafileNeverLoaded";
 
 setLogLevel(enums.LOG_LEVEL.ERROR);
 
@@ -38,6 +39,10 @@ function App() {
             <Route
               path="/RenderingWhenTimeout"
               element={<RenderingWhenTimeout />}
+            ></Route>{" "}
+            <Route
+              path="/RenderingWithoutDatafile"
+              element={<RenderingWhenDatafileNeverLoaded />}
             ></Route>
             <Route path="/" element={<ComponentWithSDKkey />}></Route>
           </Routes>
