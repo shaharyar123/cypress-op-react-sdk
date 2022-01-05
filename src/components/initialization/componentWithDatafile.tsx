@@ -8,7 +8,7 @@ import {
 import { GenericRenderer } from "../shared/generic-renderer";
 import datafile from "../../datafile.json";
 
-setLogLevel(enums.LOG_LEVEL.INFO);
+setLogLevel(enums.LOG_LEVEL.ERROR);
 
 const instance = createInstance({
   datafile,

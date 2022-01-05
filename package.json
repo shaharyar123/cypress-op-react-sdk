@@ -9,6 +9,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
+    "axios": "^0.24.0",
     "concurrently": "^6.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -22,11 +23,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "serve-build": "serve -s build",
+    "serve-build": "npm run start-node & serve -s build",
+    "start-node": "node df_manager.js",
     "cypress-open": "./node_modules/.bin/cypress open",
     "cypress-local": "concurrently \"npm run start\" \"npm run cypress-open\"",
     "cypress-run": "./node_modules/.bin/cypress run",
-    "cypress-ci": "react-scripts build && start-server-and-test \"serve -s build\" http://localhost:3000 \"npm run cypress-run\""
+    "cypress-ci": "react-scripts build && start-server-and-test \"(npm run start-node) & serve -s build \" http://localhost:3000 \"npm run cypress-run\""
   },
   "eslintConfig": {
     "extends": [

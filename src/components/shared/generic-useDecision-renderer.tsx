@@ -23,6 +23,7 @@ export const GenericUseDecisionRenderer = ({
       <div id="title">{title}</div>
       <div id="rendered-times">Rendered {++times[id]} times</div>
       <div>{flagKey}</div>
+      <div>{decision.variationKey}</div>
     </div>
   );
 };

@@ -4,11 +4,10 @@ import {
   setLogLevel,
   enums,
   OptimizelyDecideOption,
-  useDecision,
 } from "@optimizely/react-sdk";
 import { GenericUseDecisionRenderer } from "../shared/generic-useDecision-renderer";
 
-setLogLevel(enums.LOG_LEVEL.INFO);
+setLogLevel(enums.LOG_LEVEL.ERROR);
 
 const instance = createInstance({
   // no datafile here
