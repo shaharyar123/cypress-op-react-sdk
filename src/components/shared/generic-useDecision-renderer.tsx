@@ -15,9 +15,11 @@ export const GenericUseDecisionRenderer = ({
     times[id] = 0;
   }
   const [decision, clientReady, didTimeout] = useDecision(flagKey, {
-    autoUpdate: false,
+    autoUpdate: true,
   });
-
+  console.log("decision", decision);
+  console.log("clientReady", clientReady);
+  console.log("didTimeout", didTimeout);
   return (
     <div>
       <div id="title">{title}</div>

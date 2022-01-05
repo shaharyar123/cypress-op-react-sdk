@@ -8,7 +8,7 @@ import {
 } from "@optimizely/react-sdk";
 import { GenericUseDecisionRenderer } from "../shared/generic-useDecision-renderer";
 
-setLogLevel(enums.LOG_LEVEL.ERROR);
+setLogLevel(enums.LOG_LEVEL.INFO);
 
 const instance = createInstance({
   sdkKey: process.env.REACT_APP_SDK_KEY,

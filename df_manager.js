@@ -1,6 +1,6 @@
 const express = require("express");
 const fs = require("fs");
-
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const debug = require("debug")("proxyserver");
 
@@ -59,9 +59,9 @@ const myDatafileReader = (req, res) => {
   }
 };
 
-app.use("/myDatafile", myDatafileReader);
-app.use("/updateDatafile", updateDatafile);
-app.use("/resetDatafile", resetVariationKeyName);
+app.use("/myDatafile", cors(), myDatafileReader);
+app.use("/updateDatafile", cors(), updateDatafile);
+app.use("/resetDatafile", cors(), resetVariationKeyName);
 
 /* Unknown Route Handler */
 app.use("/", (req, res) => {

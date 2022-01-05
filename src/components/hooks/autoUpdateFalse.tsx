@@ -11,7 +11,9 @@ import axios from "axios";
 setLogLevel(enums.LOG_LEVEL.ERROR);
 
 const instance = createInstance({
-  sdkKey: "some",
+  // sdkKey: process.env.REACT_APP_SDK_KEY,
+
+  sdkKey: "some", // because autoupdate works with sdk key and if urlTemplate is given it will fetch data
   defaultDecideOptions: [OptimizelyDecideOption.INCLUDE_REASONS],
   datafileOptions: {
     autoUpdate: false,
@@ -43,18 +45,18 @@ const changeUser = () => {
 };
 
 const setForceFeMale = () => {
-  // instance.setForcedDecision(
-  //   {
-  //     flagKey: "product_sort",
-  //     ruleKey: "product_sort_targeted_delivery",
-  //   },
-  //   { variationKey: "female-variation" }
-  // );
+  instance.setForcedDecision(
+    {
+      flagKey: "product_sort",
+      ruleKey: "product_sort_targeted_delivery",
+    },
+    { variationKey: "female-variation" }
+  );
 };
 
 let times: { [key: string]: number } = {};
 
-const GenericUseDecisionRenderer = ({
+const Renderer = ({
   id,
   flagKey,
   title,
@@ -67,24 +69,23 @@ const GenericUseDecisionRenderer = ({
     times[id] = 0;
   }
   const [decision, clientReady, didTimeout] = useDecision(flagKey, {
-    autoUpdate: true,
+    autoUpdate: false,
   });
-
+  console.log("decision", decision);
   return (
     <div>
       <div id="title">{title}</div>
       <div id="rendered-times">Rendered {++times[id]} times</div>
-      <div>{flagKey}</div>
-      <div>{decision.variationKey}</div>
+      <div id="flag">{flagKey}</div>
+      <div id="variation-key">{decision.variationKey}</div>
     </div>
   );
 };
 
-export const Abctest = () => {
+export const AutoUpdateFalse = () => {
   return (
     <OptimizelyProvider
       optimizely={instance}
-      // timeout={2000}
       user={{
         id: "zee",
         attributes: {
@@ -92,11 +93,11 @@ export const Abctest = () => {
         },
       }}
     >
-      <GenericUseDecisionRenderer
+      <Renderer
         id="flag-one"
         flagKey="product_sort"
-        title="With Datafile"
-      ></GenericUseDecisionRenderer>
+        title="AutoUpdate is False"
+      ></Renderer>
 
       <div>
         <button id="updateDatafileBtn" onClick={updateDatafile}>

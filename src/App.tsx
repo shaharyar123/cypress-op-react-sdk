@@ -9,7 +9,7 @@ import { RenderingWithUserObject } from "./components/provider/renderingWithUser
 import { RenderingWithUserPromise } from "./components/provider/renderingWithUserPromise";
 import { RenderingWhenTimeout } from "./components/provider/renderingWhenTimeout";
 import { RenderingWhenDatafileNeverLoaded } from "./components/provider/renderingWhenDatafileNeverLoaded";
-import { Abctest } from "./components/hooks-autoupdate-false/test";
+import { AutoUpdateFalse } from "./components/hooks/autoUpdateFalse";
 
 setLogLevel(enums.LOG_LEVEL.ERROR);
 
@@ -45,7 +45,10 @@ function App() {
               path="/RenderingWithoutDatafile"
               element={<RenderingWhenDatafileNeverLoaded />}
             ></Route>{" "}
-            <Route path="/abctest" element={<Abctest />}></Route>
+            <Route
+              path="/falseAutoUpdate"
+              element={<AutoUpdateFalse />}
+            ></Route>
             <Route path="/" element={<ComponentWithSDKkey />}></Route>
           </Routes>
         </BrowserRouter>
