@@ -10,6 +10,7 @@ import { RenderingWithUserPromise } from "./components/provider/renderingWithUse
 import { RenderingWhenTimeout } from "./components/provider/renderingWhenTimeout";
 import { RenderingWhenDatafileNeverLoaded } from "./components/provider/renderingWhenDatafileNeverLoaded";
 import { AutoUpdateFalse } from "./components/hooks/autoUpdateFalse";
+import { AutoUpdateTrue } from "./components/hooks/autoUpdateTrue";
 
 setLogLevel(enums.LOG_LEVEL.ERROR);
 
@@ -48,7 +49,8 @@ function App() {
             <Route
               path="/falseAutoUpdate"
               element={<AutoUpdateFalse />}
-            ></Route>
+            ></Route>{" "}
+            <Route path="/trueAutoUpdate" element={<AutoUpdateTrue />}></Route>
             <Route path="/" element={<ComponentWithSDKkey />}></Route>
           </Routes>
         </BrowserRouter>

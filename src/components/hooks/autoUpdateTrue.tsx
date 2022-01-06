@@ -14,7 +14,7 @@ const instance = createInstance({
   sdkKey: "some", // because autoupdate works with sdk key and if urlTemplate is given it will fetch data from that url
   defaultDecideOptions: [OptimizelyDecideOption.INCLUDE_REASONS],
   datafileOptions: {
-    autoUpdate: false,
+    autoUpdate: true,
     updateInterval: 3000,
     urlTemplate: "http://localhost:5000/myDatafile",
   },
@@ -67,7 +67,7 @@ const Renderer = ({
     times[id] = 0;
   }
   const [decision, clientReady, didTimeout] = useDecision(flagKey, {
-    autoUpdate: false,
+    autoUpdate: true,
   });
   console.log("decision", decision);
   return (
@@ -80,7 +80,7 @@ const Renderer = ({
   );
 };
 
-export const AutoUpdateFalse = () => {
+export const AutoUpdateTrue = () => {
   return (
     <OptimizelyProvider
       optimizely={instance}
@@ -94,7 +94,7 @@ export const AutoUpdateFalse = () => {
       <Renderer
         id="flag-one"
         flagKey="product_sort"
-        title="AutoUpdate is False"
+        title="AutoUpdate is True"
       ></Renderer>
 
       <div>
