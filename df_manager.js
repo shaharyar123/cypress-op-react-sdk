@@ -22,8 +22,9 @@ const updateDatafile = (req, res) => {
   const name = content.experiments[0].variations[0].key;
   const nameArray = name.split("-");
   const version = +nameArray[1] + 1;
-  // reseting variation key;
+  // updating variation key;
   content.experiments[0].variations[0].key = "test-" + version;
+  // content.experiments[0].variations[0].variables[0].value = "test"; // if variable value need to update
   content.revision = ++content.revision;
   //write file
   fs.writeFileSync(

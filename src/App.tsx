@@ -11,6 +11,9 @@ import { RenderingWhenTimeout } from "./components/provider/renderingWhenTimeout
 import { RenderingWhenDatafileNeverLoaded } from "./components/provider/renderingWhenDatafileNeverLoaded";
 import { AutoUpdateFalse } from "./components/hooks/autoUpdateFalse";
 import { AutoUpdateTrue } from "./components/hooks/autoUpdateTrue";
+import { ReleventRernderOnDatafileUpdate } from "./components/multiple-hooks/releventHooksRerenderOnDatafileUpdate";
+import { ReleventRernderOnForceDecision } from "./components/multiple-hooks/releventHooksRerenderOnForceDecision";
+import { ReleventRernderOnRemoveForceDecision } from "./components/multiple-hooks/releventHooksRerenderOnRemoveForceDecision";
 
 setLogLevel(enums.LOG_LEVEL.ERROR);
 
@@ -51,6 +54,9 @@ function App() {
               element={<AutoUpdateFalse />}
             ></Route>{" "}
             <Route path="/trueAutoUpdate" element={<AutoUpdateTrue />}></Route>
+            <Route path="/releventRernderOnDatafileUpdate" element={<ReleventRernderOnDatafileUpdate />}></Route>
+            <Route path="/releventRernderOnForceDecision" element={<ReleventRernderOnForceDecision />}></Route>
+            <Route path="/releventRernderOnRemoveForceDecision" element={<ReleventRernderOnRemoveForceDecision />}></Route>
             <Route path="/" element={<ComponentWithSDKkey />}></Route>
           </Routes>
         </BrowserRouter>

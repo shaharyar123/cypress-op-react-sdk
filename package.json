@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "serve-build": "npm run start-node & serve -s build",
+    "serve-build": "npm run build && npm run start-node & serve -s build",
     "start-node": "node df_manager.js",
     "cypress-open": "./node_modules/.bin/cypress open",
     "cypress-local": "concurrently \"npm run start\" \"npm run cypress-open\"",
