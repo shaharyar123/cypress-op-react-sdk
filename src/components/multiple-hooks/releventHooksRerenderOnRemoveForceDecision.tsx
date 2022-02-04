@@ -6,8 +6,7 @@ import {
   OptimizelyDecideOption,
   useDecision,
 } from "@optimizely/react-sdk";
-import axios from "axios";
-
+ 
 setLogLevel(enums.LOG_LEVEL.ERROR);
 
 const instance = createInstance({
@@ -75,7 +74,7 @@ export const ReleventRernderOnRemoveForceDecision = () => {
         <button id="addForceDecision" onClick={setForceFeMale}>
           {" "}
           Force Decision Female
-        </button> <button id="addForceDecision" onClick={removeForceFeMale}>
+        </button> <button id="removeForceDecision" onClick={removeForceFeMale}>
           {" "}
           Remove Force Decision Female
         </button>

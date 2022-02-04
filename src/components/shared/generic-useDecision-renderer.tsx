@@ -17,9 +17,6 @@ export const GenericUseDecisionRenderer = ({
   const [decision, clientReady, didTimeout] = useDecision(flagKey, {
     autoUpdate: true,
   });
-  console.log("decision", decision);
-  console.log("clientReady", clientReady);
-  console.log("didTimeout", didTimeout);
   return (
     <div>
       <div id="title">{title}</div>
